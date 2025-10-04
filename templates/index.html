@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AutoU - Classificador de Emails</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-slate-100 p-4">
+    <div
+      class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl overflow-hidden"
+    >
+      <!-- Lado esquerdo -->
+      <div
+        class="w-full md:w-1/2 bg-gradient-to-b from-orange-300 to-orange-400 text-white p-8 md:p-10 flex flex-col justify-center"
+      >
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">AutoU</h1>
+
+        <!-- Desktop: linhas separadas / Mobile: frase corrida -->
+        <div class="text-lg md:text-xl font-semibold leading-snug">
+          <span class="hidden md:inline">
+            Inteligência que transforma<br />
+            <span class="font-bold text-orange-600">complexidade</span><br />
+            em vantagem competitiva
+          </span>
+          <span class="md:hidden">
+            Inteligência que transforma
+            <span class="font-bold text-orange-600">complexidade</span> em
+            vantagem competitiva
+          </span>
+        </div>
+      </div>
+
+      <!-- Lado direito -->
+      <div
+        class="w-full md:w-1/2 bg-gray-900 p-6 md:p-10 flex flex-col justify-center relative"
+      >
+        <h2
+          class="text-lg md:text-xl font-bold text-white flex items-center mb-6"
+        >
+          <span class="mr-2">📧</span> Classificador de Emails
+        </h2>
+
+        <form
+          id="emailForm"
+          method="POST"
+          action="/process"
+          enctype="multipart/form-data"
+          class="space-y-4"
+        >
+          <!-- Upload -->
+          <div class="flex items-center">
+            <input
+              type="file"
+              name="file"
+              class="w-full text-sm text-gray-300 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-orange-500 file:text-white hover:file:bg-orange-400"
+            />
+          </div>
+
+          <!-- Botão enviar -->
+          <button
+            type="submit"
+            class="w-full bg-orange-500 hover:bg-orange-400 text-white font-semibold py-2 rounded-lg"
+          >
+            Enviar
+          </button>
+
+          <!-- Botão limpar -->
+          <button
+            type="button"
+            id="clearBtn"
+            class="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded-lg"
+          >
+            Limpar
+          </button>
+
+          <p class="text-gray-400 text-center text-sm">
+            ou cole o conteúdo do email abaixo:
+          </p>
+
+          <!-- Área de texto -->
+          <textarea
+            name="text"
+            rows="5"
+            class="w-full rounded-lg p-3 bg-gray-800 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm md:text-base"
+            placeholder="Cole o conteúdo do email aqui..."
+          ></textarea>
+        </form>
+
+        <!-- Spinner -->
+        <div
+          id="loading"
+          class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-900 bg-opacity-90 rounded-lg"
+        >
+          <svg
+            class="animate-spin h-8 md:h-10 w-8 md:w-10 text-purple-500 mb-3"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v8H4z"
+            ></path>
+          </svg>
+          <p class="text-white font-medium text-sm md:text-base">
+            Classificando o email...
+          </p>
+        </div>
+
+        {% if result %}
+        <div
+          class="mt-6 p-4 bg-gray-800 rounded-lg text-gray-200 relative z-10 text-sm md:text-base"
+        >
+          <h3 class="text-base md:text-lg font-semibold mb-2">📌 Resultado:</h3>
+          <p><strong>Categoria:</strong> {{ result.category }}</p>
+          <p class="mt-2"><strong>Explicação:</strong> {{ result.explain }}</p>
+          <hr class="my-3 border-gray-700" />
+          <p><strong>Resposta sugerida:</strong></p>
+          <p class="mt-1 text-purple-300">{{ reply }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("emailForm");
+      const loading = document.getElementById("loading");
+      const clearBtn = document.getElementById("clearBtn");
+
+      form.addEventListener("submit", () => {
+        loading.classList.remove("hidden");
+      });
+
+      clearBtn.addEventListener("click", () => {
+        document.querySelector('input[name="file"]').value = "";
+        document.querySelector('textarea[name="text"]').value = "";
+        const resultBox = document.querySelector(".mt-6");
+        if (resultBox) resultBox.remove();
+      });
+    </script>
+  </body>
+</html>
