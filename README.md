@@ -8,8 +8,6 @@ AutoU é uma aplicação web desenvolvida em Flask que utiliza a API do Google G
 
 ### ✨ [Acesse a demonstração ao vivo aqui!](https://case-pratico-auto-u-alpha.vercel.app/process)
 
-_(Lembre-se de substituir pelo link do seu projeto na Vercel)_
-
 ---
 
 ### 📸 Demonstração
