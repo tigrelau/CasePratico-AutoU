@@ -6,7 +6,7 @@
 
 AutoU é uma aplicação web desenvolvida em Flask que utiliza a API do Google Generative AI para classificar e-mails, ajudando a priorizar mensagens que exigem ação e sugerindo respostas adequadas.
 
-### ✨ [Acesse a demonstração ao vivo aqui!](https://seu-link-do-vercel.vercel.app/)
+### ✨ [Acesse a demonstração ao vivo aqui!](https://case-pratico-auto-u-alpha.vercel.app/process)
 
 _(Lembre-se de substituir pelo link do seu projeto na Vercel)_
 
@@ -14,14 +14,11 @@ _(Lembre-se de substituir pelo link do seu projeto na Vercel)_
 
 ### 📸 Demonstração
 
-_Dica: Tire um print da sua aplicação funcionando e coloque aqui para chamar a atenção!_
-
-![Demonstração do AutoU](https://i.imgur.com/your-screenshot.png)
-_(Substitua este link pela URL da sua imagem/screenshot)_
+![Demonstração do AutoU](./img/autoU.png)
 
 ## 🎯 Sobre o Projeto
 
-O objetivo do AutoU é otimizar o gerenciamento de e-mails através da automação. A aplicação analisa o conteúdo de um e-mail (seja colado diretamente ou extraído de um arquivo `.txt` ou `.pdf`) e o classifica em duas categorias principais:
+O objetivo é otimizar o gerenciamento de e-mails através da automação. A aplicação analisa o conteúdo de um e-mail (seja colado diretamente ou extraído de um arquivo `.txt` ou `.pdf`) e o classifica em duas categorias principais:
 
 - **Produtivo**: E-mails que demandam uma ação, como solicitações, problemas ou dúvidas.
 - **Improdutivo**: E-mails que não necessitam de uma ação imediata, como agradecimentos, felicitações ou spams.
@@ -94,15 +91,6 @@ Siga os passos abaixo para configurar e executar o projeto no seu ambiente local
     flask run
     ```
     Acesse `http://127.0.0.1:5000` no seu navegador.
-
-## 🌐 Deploy na Vercel
-
-Este projeto está pronto para o deploy na Vercel.
-
-1.  Garanta que o arquivo `vercel.json` existe na raiz do projeto.
-2.  Faça o push do seu código para um repositório no GitHub.
-3.  Importe o projeto na Vercel.
-4.  Configure a variável de ambiente `GENAI_API_KEY` nas configurações do projeto na Vercel antes de fazer o deploy.
 
 ---
 
