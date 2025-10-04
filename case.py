@@ -20,7 +20,7 @@ except Exception:
 
 # ---------- CONFIG GERAL ----------
 load_dotenv()
-UPLOAD_FOLDER = "uploads"
+UPLOAD_FOLDER = "/tmp" 
 ALLOWED_EXTENSIONS = {"txt", "pdf"}
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
