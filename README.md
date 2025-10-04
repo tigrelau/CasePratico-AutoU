@@ -92,4 +92,4 @@ Siga os passos abaixo para configurar e executar o projeto no seu ambiente local
 
 ---
 
-Feito por [Laura Tigre]
+Feito por Laura Tigre
