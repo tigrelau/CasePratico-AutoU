@@ -6,7 +6,7 @@
 
 AutoU é uma aplicação web desenvolvida em Flask que utiliza a API do Google Generative AI para classificar e-mails, ajudando a priorizar mensagens que exigem ação e sugerindo respostas adequadas.
 
-### ✨ [Acesse a demonstração ao vivo aqui!](https://case-pratico-auto-u-alpha.vercel.app/process)
+### ✨ [Acesse a demonstração ao vivo aqui!](https://case-pratico-auto-u-alpha.vercel.app)
 
 ---
 
